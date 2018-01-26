@@ -66,7 +66,7 @@ export default {
         response => {
           if(response.data.url) {
             this.webSocketInstance = new WebSocket(response.data.url);
-            this.workspaceData = response.data;
+            this.workspaceData = response.data;            
           }
           else {
             this.setToOfflineMode();
@@ -115,8 +115,8 @@ export default {
       this.axios.post(this.uri, 'request=getUsers')
       .then(
         function(response) {
-
           var users =  response.data.members;
+
           let channelList = self.workspaceData.channels;
           var resultChannel = "";
 

@@ -1,6 +1,6 @@
 <template>
   <div class="slackWidget-offline">
-    <form class="slackWidget-offline__form" v-on:submit.prevent="onSubmit">
+    <form class="slackWidget-offline__form" v-on:submit.prevent="onSubmit" v-if="showForm">
       <p class="slackWidget-offline__title"> {{titleMessage}}</p>
 
       <textarea ref="messageField" class="slackWidget-offline__message"
@@ -21,6 +21,9 @@
         <button class="slackWidget-offline__submit" type="submit"></button>
       </div>
     </form>
+    <div v-else class="slackWidget-offline__resultMessage">
+      <p>{{ resultMessage }}</p>
+    </div>
   </div>
 </template>
 
@@ -39,7 +42,8 @@ export default {
       placeholderMessage: settingsManager.getProperty("inputMessagePlaceholder"),
       placeholderEmail: settingsManager.getProperty("emailPlaceholder"),
       titleMessage: settingsManager.getProperty("emailFormTitle"),
-
+      showForm: true,
+      isSent: false,
       email: "",
       emailTo: settingsManager.getProperty("email"),
 
@@ -68,8 +72,21 @@ export default {
       */
       clearedEmail: function () {
         return this.email.trim();
-      }
+      },
 
+    /**
+      * Return message that printed after message sending
+      * @method resultMessage
+      * @return {string} - result message
+      */
+      resultMessage: function () {
+        if(this.isSent) {
+          return settingsManager.getProperty("emailSend");
+        }
+        else {
+          return settingsManager.getProperty("emailNotSend");
+        }
+      }
   },
 
   methods: {
@@ -126,11 +143,12 @@ export default {
     * @param {string} data - sending data
     */
     sendAjaxMessage(uri, data) {
+      var self = this;
       this.axios.post(uri, data).then(function (response) {
-        console.log(response);
+        self.isSent = true;
       })
       .catch(function (error) {
-        console.log(error);
+        self.isSent = false;
       });
     },
 
@@ -161,6 +179,7 @@ export default {
 
           this.hasError = false;
           this.clearFields();
+          this.showForm = false;
         }
         else {
           this.hasError = true;
@@ -195,6 +214,22 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  .slackWidget-offline__resultMessage {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 5px 10px;
+    resize: none;
+    overflow: hidden;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    p {
+      text-align: center;
+    }
   }
 
   .slackWidget-offline {

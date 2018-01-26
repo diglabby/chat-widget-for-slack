@@ -4,7 +4,7 @@ var slackChatWidgetConfig = {
     windowWidth: 300,
     windowBottomMargin: 100,
     windowRightMargin: 100,
-    widgetPath: "slackChatWidget/", //widget path
+    
     title: 'Chat title', //chat title
     subtitle: 'Chat subtitle',     //chat subtitle
     channel: '.......',       //slack channel   
