@@ -65,8 +65,8 @@ channel: "XXXXXX"
 ```
 - inside *config.js* you have all editable widget parameters. 
 
-## Full module documentation
-[docs](docs/index.html)
+## Modules documentation
+[docs](docs/)
 
 ## Built With
 
