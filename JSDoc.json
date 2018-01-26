@@ -1,0 +1,7 @@
+{
+    "plugins": ["node_modules/jsdoc-vue"], 
+    "source": {        
+        "includePattern": "\\.(vue|js)$",
+        "exclude": ["src/helpers/autosize.js"]        
+    }
+}
