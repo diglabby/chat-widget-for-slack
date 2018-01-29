@@ -10,7 +10,7 @@ export const utils = (() => {
     * @return {string} Time in h:i:s format.
     */
     formatTime: (timeStamp) => {
-      let date = new Date(timeStamp * 1000); // convert to secconds from milliseconds
+      let date = new Date(timeStamp * 1000);
       let hours = date.getHours();
       let minutes = "0" + date.getMinutes();
       let seconds = "0" + date.getSeconds();

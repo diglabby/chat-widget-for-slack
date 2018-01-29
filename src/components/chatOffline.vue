@@ -281,6 +281,8 @@ export default {
       font-weight: 400;
       color: #555;
       width: 100%;
+      border: 1px solid #999;
+      border-radius: 2px;
       outline: none;
       height: auto;
       padding: 5px 10px;

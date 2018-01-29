@@ -9,9 +9,9 @@ export const settingsManager = (() => {
     windowBottomMargin: 100,
     windowRightMargin: 100,
     widgetPath: "slackChatWidget/", //widget path
-    title: 'Chat title', //chat title
-    subtitle: 'Chat subtitle',     //chat subtitle
-    channel: '.......',       //slack channel
+    title: "Chat title", //chat title
+    subtitle: "Chat subtitle",     //chat subtitle
+    channel: ".......",       //slack channel
     logo: "img/logo.png",
 
     inputMessagePlaceholder: "Your message",
@@ -24,7 +24,7 @@ export const settingsManager = (() => {
     emailSend: "Thanks for your massage",
     emailNotSend: "Sorry, your email not sent, try later",
 
-    requestHandlerPath: 'slackChatWidget/app/php/requestHandler.php',
+    requestHandlerPath: "slackChatWidget/app/php/requestHandler.php",
 
     openChatTimeout: 5000,
     welcomeMessageTimeout: 1000,

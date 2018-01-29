@@ -1,10 +1,10 @@
 <template>
   <div class="slackWidget-header">
-    <div class="slackWidget-header__title"> {{ title }} </div>
+    <div class="slackWidget-header__title">{{ title }}</div>
     <div class="slackWidget-header__logo">
       <img class="slackWidget-logo" src="../assets/logo.png">
     </div>
-    <div class="slackWidget-header__subtitle"> {{ subtitle }} </div>
+    <div class="slackWidget-header__subtitle">{{ subtitle }}</div>
   </div>
 </template>
 
@@ -18,10 +18,10 @@ export default {
   name: 'chatHeader',
 
   data () {
-    return {
-      title: settingsManager.getProperty("title"),
-      subtitle: settingsManager.getProperty("subtitle"),
-      logo: this.loadLogo(settingsManager.getProperty("logo"))
+    return {    
+      title: settingsManager.getProperty('title'),
+      subtitle: settingsManager.getProperty('subtitle'),
+      //logo: this.loadLogo(settingsManager.getProperty('logo'))
     }
   },
 
@@ -65,6 +65,7 @@ export default {
   .slackWidget-header {
 
     display: flex;
+    height: 130px;
     min-height: 130px;
     width: 100%;
     justify-content: center;

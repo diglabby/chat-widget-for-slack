@@ -120,8 +120,7 @@ export default {
     * @method clearFields
     */
     clearFields: function() {
-      this.message = "";
-      this.username = "";
+      this.message = "";      
     },
 
   /**
@@ -131,8 +130,7 @@ export default {
     * @param {string} data - sending data
     */
     sendAjaxMessage(uri, data) {
-      this.axios.post(uri, data).then(function (response) {
-        console.log(response);
+      this.axios.post(uri, data).then(function (response) {        
       })
       .catch(function (error) {
         console.log(error);
@@ -184,14 +182,20 @@ export default {
   mounted: function () {
     //set initial values
     this.username = this.getUsername();
+    if(!this.username)
+        this.username = "";
+    
     this.message = this.getMessage();
+    if(!this.message)
+         this.message = "";
 
     //attach autosize to message field
     autosize(this.$refs.messageField);
   },
 
   updated:  function () {
-    autosize.update(this.$refs.messageField);
+    autosize(this.$refs.messageField);
+    //autosize.update(this.$refs.messageField);
   }
 }
 </script>

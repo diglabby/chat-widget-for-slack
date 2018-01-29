@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/chatWindow.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/components</a> chatWindow.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/63</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/58</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;<span class="cstat-no" title="statement not covered" >t<span class="fstat-no" title="function not covered" >em</span>plate&gt;</span>
+  &lt;div class="slackChatWidget-container" v-bind:style="{ height: style.height + 'px', width: style.width + 'px'}"&gt;
+    &lt;div class="slackChatWidget__close" v-on:click="closeChat"&gt;&lt;/div&gt;
+<span class="cstat-no" title="statement not covered" >    &lt;div class="chatWindow"&gt;</span>
+      &lt;chatHeader&gt;
+      &lt;/chatHeader&gt;
+      &lt;chatDialog :webSocketInstance='webSocketInstance' :connectionStatus='connectionStatus' :workspaceData='workspaceData' v-if="showDialog"&gt;
+      &lt;/chatDialog<span class="cstat-no" title="statement not covered" >&gt;</span>
+      &lt;chatInput v-if="showInput"&gt;
+      &lt;/chatInput&gt;<span class="cstat-no" title="statement not covered" ></span>
+      &lt;chatOffline v-if="showOffline"&gt;
+      &lt;/chatOfflin<span class="cstat-no" title="statement not covered" >e&gt;</span>
+    &lt;/div&gt;
+  &lt;/div&gt;<span class="cstat-no" title="statement not covered" ></span>
+&lt;/template&gt;
+<span class="cstat-no" title="statement not covered" ></span>
+&lt;script&gt;
+<span class="cstat-no" title="statement not covered" ></span>
+import chatHeader from './chatHeader.vue'
+import chatDialog f<span class="cstat-no" title="statement not covered" >rom './chatDialog.vue'</span>
+import chatInput from './chatInput.vue'
+import chatOffline f<span class="cstat-no" title="statement not covered" >rom './chatOffline.vue'</span>
+import {settingsManager} from "../helpers/settingsManager.js"
+<span class="cstat-no" title="statement not covered" ></span>
+/** @module chatWindow  - contains functionality of main chat window  */
+export de<span class="fstat-no" title="function not covered" >fault {<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+  name: 'chatWindow',
+<span class="cstat-no" title="statement not covered" ></span>
+  components: {
+    chatHeader,
+    chatDialog,
+    chatInput,
+    chatOffline
+  },
+&nbsp;
+  data () {
+    return {
+      channel: settingsManager.getProperty("channel"),
+      uri: settin<span class="fstat-no" title="function not covered" >gsMan</span>ager.getProperty("requestHandlerPath"),
+<span class="cstat-no" title="statement not covered" >      showDialog: false,</span>
+      showInput: false,
+      showOffline: false,
+      connectionStatus: 'false',
+      webSocketInstance: '',
+      workspaceData: '', //parsed data about workspace
+      style: {
+        height: settingsManager.getProperty("windowHeight"),
+        width: settingsManager.getProperty("windowWidth"),
+        bottom: settingsManager.getProperty("windowBottomMargin"),
+        right: settingsManager.getProperty("windowRightMargin")
+      }
+    }
+  },
+&nbsp;
+  methods: {
+&nbsp;
+  /**
+    * Creates new socket instance, establish Connection with Slack
+    * @method createSocket
+    */
+    createSocket: function () {
+&nbsp;
+      var req = this.axios.post(this.uri, 'request=createSocket')
+      .then(
+        response =&gt; {<span class="fstat-no" title="function not covered" ></span>
+          if(respo<span class="cstat-no" title="statement not covered" >nse.d</span>ata.url) {
+            this.webSocketInstance = new WebSocket(response.data.url);
+            this<span class="cstat-no" title="statement not covered" >.workspaceData = response.data;            <span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" >          }</span>
+<span class="cstat-no" title="statement not covered" >          else {</span>
+<span class="cstat-no" title="statement not covered" >            this.setToOfflineMode();</span>
+          }
+        },<span class="cstat-no" title="statement not covered" ></span>
+        error =&gt; {
+<span class="fstat-no" title="function not covered" >          t</span>his.setToOfflineMode();
+<span class="cstat-no" title="statement not covered" >          console.log(error);</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+      );
+&nbsp;
+      // check if some users in channel online
+<span class="cstat-no" title="statement not covered" >      req.then(this.isSomeOnline);</span>
+    },
+&nbsp;
+  /**
+    * Render only online mode components(chatHeader, chatDialog, chatInput)
+    * @method setToOnlineMode
+    */
+    setToOnlineMode: function(<span class="fstat-no" title="function not covered" >) {</span>
+<span class="cstat-no" title="statement not covered" >      this.connectionStatus = true;</span>
+<span class="cstat-no" title="statement not covered" >      this.showDialog = this.connectionStatus;</span>
+<span class="cstat-no" title="statement not covered" >      this.showInput = this.connectionStatus;</span>
+<span class="cstat-no" title="statement not covered" >      this.showOffline = !this.connectionStatus;</span>
+    },
+&nbsp;
+  /**
+    * Render only offine mode components(chatHeader, chatOffline)
+    * @method setToOnlineMode
+    */
+    setToOfflineMode: function(<span class="fstat-no" title="function not covered" >) {</span>
+<span class="cstat-no" title="statement not covered" >      this.connectionStatus = false;</span>
+<span class="cstat-no" title="statement not covered" >      this.showDialog = this.connectionStatus;</span>
+<span class="cstat-no" title="statement not covered" >      this.showInput = this.connectionStatus;</span>
+<span class="cstat-no" title="statement not covered" >      this.showOffline = !this.connectionStatus;</span>
+    },
+&nbsp;
+  /**
+    * Get users statuses from Slack and check active status
+    * @method isSomeOnline
+    */
+    isSomeOnline: function <span class="fstat-no" title="function not covered" >() {</span>
+&nbsp;
+      var self = <span class="cstat-no" title="statement not covered" >this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.axios.post(this.uri, 'request=getUsers')<span class="fstat-no" title="function not covered" ></span></span>
+      .then(<span class="cstat-no" title="statement not covered" ></span>
+        function(response) {
+          var users =  res<span class="cstat-no" title="statement not covered" >ponse.data.members;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+          let channelList = self.workspaceData.channels;
+<span class="cstat-no" title="statement not covered" >          var resultChannel = "";</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+          if(channelList) {
+            resultChannel = c<span class="cstat-no" title="statement not covered" >hannelList.fi<span class="fstat-no" title="function not covered" >lt</span>er(function( obj ) {</span>
+<span class="cstat-no" title="statement not covered" >              return obj.id == self.channel;</span>
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            let members = resultChanne</span>l[0].members;
+&nbsp;
+            function isOnline(userId) {
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" >              var onlineUser = users.filter</span>(function( obj ) {
+                return ((obj.id == userId)
+                  &amp;&amp; (obj.presence == "active") &amp;&amp; (obj.is_bot !== true));
+              });<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              return onlineUser.length;</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if(members.some(isOnline)</span>) {
+              self.setToOnlineMode();
+            }
+<span class="cstat-no" title="statement not covered" >            else {</span>
+              self.setToOfflineMode();
+<span class="fstat-no" title="function not covered" ></span>            }
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >          } else {</span>
+            self.setToOfflineMode();
+          }
+        },
+        error =&gt; {
+          self.setToOfflineMode();
+          console.log(error);
+        }
+      );<span class="fstat-no" title="function not covered" ></span>
+    },<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  /**
+    * Pass close chat event to parent container
+    * @method closeC<span class="fstat-no" title="function not covered" >hat</span>
+<span class="cstat-no" title="statement not covered" >    */</span>
+    closeChat: function () {
+      this.$emit('hide');
+<span class="cstat-no" title="statement not covered" >    }</span>
+  },
+&nbsp;
+  mounted: function () {
+    this.createSocket();
+&nbsp;
+    //set window draggable and resizable
+    $('.slackChatWidget-container').resizable({
+      handles: 'n, e, s, w',
+<span class="cstat-no" title="statement not covered" >      ghost: true,</span>
+      maxHeight: "100vh",
+      maxWidth: "100vw",
+      minHeight: "300px",
+      minWidth: "200px",
+    });
+&nbsp;
+    $('.slackChatWidget-container').draggable({
+      handle: ".slackWidget-header"
+    });
+  }
+&nbsp;
+}
+&lt;/script&gt;
+&nbsp;
+&lt;style lang="scss" scoped&gt;
+&nbsp;
+  @import '../assets/css/normalize.css';
+&nbsp;
+  * {
+    margin: 0;
+    padding: 0;
+<span class="cstat-no" title="statement not covered" >    box-sizing: border-box;<span class="cstat-no" title="statement not covered" ></span></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span>
+<span class="cstat-no" title="statement not covered" >  .slackChatWidget {</span>
+&nbsp;
+    &amp;-container {
+      height: 400px;
+      width: 300px;
+      border: 1px solid #a6cc0c;
+      border-radius: 10px;
+      position: fixed;
+      bottom: 100px;
+      right: 100px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+    }
+&nbsp;
+    &amp;__close {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      background: url("../assets/close_chat.png") center center no-repeat;
+      background-size: contain;
+      cursor: pointer;
+    }
+  }
+&nbsp;
+  .chatWindow {
+    width: 100%;
+    height: 100%;
+    //padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+  }
+&nbsp;
+  .ui-resizable {
+    &amp;-n {
+      width: 30px;
+      left: -20px;
+    }
+    &amp;-w {
+      width: 30px;
+      left: -20px;
+    }
+    &amp;-e {
+      width: 30px;
+      left: -20px;
+    }
+    &amp;-s {
+      width: 30px;
+      left: -20px;
+    }
+  }
+&nbsp;
+  .ui-draggable-helper {
+    border:  1px dotted #a6cc0c;
+  }
+&lt;/style&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jan 27 2018 01:16:50 GMT+0300 (Калининградское время (зима))
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>
