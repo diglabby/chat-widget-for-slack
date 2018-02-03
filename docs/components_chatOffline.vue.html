@@ -28,7 +28,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>&lt;template>
   &lt;div class="slackWidget-offline">
-    &lt;form class="slackWidget-offline__form" v-on:submit.prevent="onSubmit">
+    &lt;form class="slackWidget-offline__form" v-on:submit.prevent="onSubmit" v-if="showForm">
       &lt;p class="slackWidget-offline__title"> {{titleMessage}}&lt;/p>
 
       &lt;textarea ref="messageField" class="slackWidget-offline__message"
@@ -49,6 +49,9 @@
         &lt;button class="slackWidget-offline__submit" type="submit">&lt;/button>
       &lt;/div>
     &lt;/form>
+    &lt;div v-else class="slackWidget-offline__resultMessage">
+      &lt;p>{{ resultMessage }}&lt;/p>
+    &lt;/div>
   &lt;/div>
 &lt;/template>
 
@@ -67,7 +70,8 @@ export default {
       placeholderMessage: settingsManager.getProperty("inputMessagePlaceholder"),
       placeholderEmail: settingsManager.getProperty("emailPlaceholder"),
       titleMessage: settingsManager.getProperty("emailFormTitle"),
-
+      showForm: true,
+      isSent: false,
       email: "",
       emailTo: settingsManager.getProperty("email"),
 
@@ -96,8 +100,21 @@ export default {
       */
       clearedEmail: function () {
         return this.email.trim();
-      }
+      },
 
+    /**
+      * Return message that printed after message sending
+      * @method resultMessage
+      * @return {string} - result message
+      */
+      resultMessage: function () {
+        if(this.isSent) {
+          return settingsManager.getProperty("emailSend");
+        }
+        else {
+          return settingsManager.getProperty("emailNotSend");
+        }
+      }
   },
 
   methods: {
@@ -154,11 +171,12 @@ export default {
     * @param {string} data - sending data
     */
     sendAjaxMessage(uri, data) {
+      var self = this;
       this.axios.post(uri, data).then(function (response) {
-        console.log(response);
+        self.isSent = true;
       })
       .catch(function (error) {
-        console.log(error);
+        self.isSent = false;
       });
     },
 
@@ -189,6 +207,7 @@ export default {
 
           this.hasError = false;
           this.clearFields();
+          this.showForm = false;
         }
         else {
           this.hasError = true;
@@ -223,6 +242,22 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  .slackWidget-offline__resultMessage {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 5px 10px;
+    resize: none;
+    overflow: hidden;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    p {
+      text-align: center;
+    }
   }
 
   .slackWidget-offline {
@@ -274,6 +309,8 @@ export default {
       font-weight: 400;
       color: #555;
       width: 100%;
+      border: 1px solid #999;
+      border-radius: 2px;
       outline: none;
       height: auto;
       padding: 5px 10px;
@@ -345,13 +382,13 @@ export default {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App%2520%2520-%2520main%2520chat%2520module.html">App  - main chat module</a></li><li><a href="module-chatDialog%2520%2520-%2520contains%2520functionality%2520of%2520chat%2520message%2520field.html">chatDialog  - contains functionality of chat message field</a></li><li><a href="module-chatHeader%2520-%2520chat%2520header%2520component.html">chatHeader - chat header component</a></li><li><a href="module-chatInput%2520-%2520contains%2520functionality%2520of%2520chat%2520input%2520messages%2520component.html">chatInput - contains functionality of chat input messages component</a></li><li><a href="module-chatOffline%2520%2520-%2520contains%2520functionality%2520of%2520chat%2520window%2520when%2520all%2520users%2520is%2520offline.html">chatOffline  - contains functionality of chat window when all users is offline</a></li><li><a href="module-chatWindow%2520%2520-%2520contains%2520functionality%2520of%2520main%2520chat%2520window.html">chatWindow  - contains functionality of main chat window</a></li><li><a href="module-settingsManager%2520-%2520manage%2520user%2520settings%2520for%2520chat.html">settingsManager - manage user settings for chat</a></li><li><a href="module-utils%2520%2520-%2520utils%2520used%2520across%2520whole%2520project.html">utils  - utils used across whole project</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App%2520%2520-%2520main%2520chat%2520module.html">App  - main chat module</a></li><li><a href="module-chatDialog%2520%2520-%2520contains%2520functionality%2520of%2520chat%2520message%2520field.html">chatDialog  - contains functionality of chat message field</a></li><li><a href="module-chatHeader%2520-%2520chat%2520header%2520component.html">chatHeader - chat header component</a></li><li><a href="module-chatInput%2520-%2520contains%2520functionality%2520of%2520chat%2520input%2520messages%2520component.html">chatInput - contains functionality of chat input messages component</a></li><li><a href="module-chatOffline%2520%2520-%2520contains%2520functionality%2520of%2520chat%2520window%2520when%2520all%2520users%2520is%2520offline.html">chatOffline  - contains functionality of chat window when all users is offline</a></li><li><a href="module-chatWindow%2520%2520-%2520contains%2520functionality%2520of%2520main%2520chat%2520window.html">chatWindow  - contains functionality of main chat window</a></li><li><a href="module-loader%2520-%2520loading%2520effect.html">loader - loading effect</a></li><li><a href="module-settingsManager%2520-%2520manage%2520user%2520settings%2520for%2520chat.html">settingsManager - manage user settings for chat</a></li><li><a href="module-utils%2520%2520-%2520utils%2520used%2520across%2520whole%2520project.html">utils  - utils used across whole project</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jan 26 2018 17:01:20 GMT+0300 (Калининградское время (зима))
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Feb 03 2018 16:57:52 GMT+0300 (Калининградское время (зима))
 </footer>
 
 <script> prettyPrint(); </script>

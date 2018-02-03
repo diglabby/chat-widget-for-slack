@@ -1,5 +1,6 @@
 <template>
   <div id="slackWidget-dialog" class="slackWidget-dialog" v-on:wheel="getHistory">
+    <loader id="slackWidget-dialog__loader" v-if="showLoader"></loader>
     <div class="slackWidget-dialog__container" v-if="connectionStatus">
         <ul class="slackWidget-dialog__list">
             <li v-for="item in messages" v-bind:class="{ 'slackWidget-message_user': item.isUser }" class="slackWidget-message">
@@ -23,10 +24,15 @@
 import {utils} from "../helpers/utils.js"
 import defaultAvatar from "../assets/defaultAvatar.png"
 import {settingsManager} from "../helpers/settingsManager.js"
+import loader from './loader.vue'
 
 /** @module chatDialog  - contains functionality of chat message field  */
 export default {
   name: 'chatDialog',
+
+  components: {
+    loader
+  },
 
   props: [
     'webSocketInstance', // current web socket instance
@@ -36,6 +42,7 @@ export default {
 
   data () {
     return {
+      showLoader: false,
       getHistoryIsBusy: false, //indicates getHistory ajax call ending
       toTop: true, //autoscroll direction
       messages: [], //all messages array
@@ -44,6 +51,13 @@ export default {
       welcomeMessageTimeout: settingsManager.getProperty("welcomeMessageTimeout"),
       channel: settingsManager.getProperty("channel")
     }
+  },
+
+  watch: {
+    getHistoryIsBusy: function (value) {
+      this.getHistoryIsBusy = value;
+      this.showLoader = value;
+    },
   },
 
   methods: {
@@ -233,6 +247,7 @@ export default {
   }
 
   .slackWidget-dialog {
+    position: relative;
     width: 100%;
     height: 54%;
     padding: 0 10px;
@@ -322,5 +337,15 @@ export default {
 
     margin-right: 30px;
     align-self: flex-end;
+  }
+
+  #slackWidget-dialog__loader {
+    height: 20px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-size: auto 100%;
+    position: absolute;
   }
 </style>

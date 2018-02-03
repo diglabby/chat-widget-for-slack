@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: settingsManager - manage user settings for chat</title>
+    <title>JSDoc: Source: model/sourceProvider.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,213 +17,47 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: settingsManager - manage user settings for chat</h1>
+    <h1 class="page-title">Source: model/sourceProvider.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~getProperty"><span class="type-signature">(inner) </span>getProperty<span class="signature">(property)</span><span class="type-signature"> &rarr; {Object}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Get user settings for chat.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>property</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">chat setting property</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helpers_settingsManager.js.html">helpers/settingsManager.js</a>, <a href="helpers_settingsManager.js.html#line45">line 45</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    - property value.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>class SourceProvider {
+
+    constructor(text){
+       this._text = text;
+    }
+
+    /**
+     * Implementation optional
+     */
+    genericMethod() {
+        console.log('running from super class. Text: '+this._text);
+    }
+
+    /**
+     * Implementation required
+     */
+     isOnline() {
+        throw new Error('You have to implement the method isOnline!');
+     }
+
+    sendMessage(message, username, channel) {
+       throw new Error('You have to implement the method sendMessage!');
+    }
+
+    sendEmail(message, email, mailto) {
+      throw new Error('You have to implement the method sendEmail!');
+    }
+
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

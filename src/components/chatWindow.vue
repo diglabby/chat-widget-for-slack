@@ -10,6 +10,8 @@
       </chatInput>
       <chatOffline v-if="showOffline">
       </chatOffline>
+      <loader v-if="showLoader">
+      </loader>
     </div>
   </div>
 </template>
@@ -20,6 +22,7 @@ import chatHeader from './chatHeader.vue'
 import chatDialog from './chatDialog.vue'
 import chatInput from './chatInput.vue'
 import chatOffline from './chatOffline.vue'
+import loader from './loader.vue'
 import {settingsManager} from "../helpers/settingsManager.js"
 
 /** @module chatWindow  - contains functionality of main chat window  */
@@ -31,7 +34,8 @@ export default {
     chatHeader,
     chatDialog,
     chatInput,
-    chatOffline
+    chatOffline,
+    loader,
   },
 
   data () {
@@ -41,6 +45,7 @@ export default {
       showDialog: false,
       showInput: false,
       showOffline: false,
+      showLoader: true,
       connectionStatus: 'false',
       webSocketInstance: '',
       workspaceData: '', //parsed data about workspace
@@ -66,7 +71,7 @@ export default {
         response => {
           if(response.data.url) {
             this.webSocketInstance = new WebSocket(response.data.url);
-            this.workspaceData = response.data;            
+            this.workspaceData = response.data;
           }
           else {
             this.setToOfflineMode();
@@ -124,33 +129,36 @@ export default {
             resultChannel = channelList.filter(function( obj ) {
               return obj.id == self.channel;
             });
+            if(resultChannel.length !== 0) {
+              var members = resultChannel[0].members;
 
-            let members = resultChannel[0].members;
+              function isOnline(userId) {
 
-            function isOnline(userId) {
+                var onlineUser = users.filter(function( obj ) {
+                  return ((obj.id == userId)
+                    && (obj.presence == "active") && (obj.is_bot !== true));
+                });
 
-              var onlineUser = users.filter(function( obj ) {
-                return ((obj.id == userId)
-                  && (obj.presence == "active") && (obj.is_bot !== true));
-              });
+                return onlineUser.length;
+              }
 
-              return onlineUser.length;
-            }
-
-            if(members.some(isOnline)) {
-              self.setToOnlineMode();
-            }
-            else {
+              if(members.some(isOnline)) {
+                self.setToOnlineMode();
+              } else {
+                self.setToOfflineMode();
+              }
+            } else {
               self.setToOfflineMode();
             }
-
           } else {
             self.setToOfflineMode();
           }
+          self.showLoader = false;
         },
         error => {
           self.setToOfflineMode();
           console.log(error);
+          self.showLoader = false;
         }
       );
     },
