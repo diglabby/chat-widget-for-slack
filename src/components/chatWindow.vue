@@ -208,8 +208,8 @@ export default {
     &-container {
       height: 400px;
       width: 300px;
-      border: 1px solid #64DD17;
-      border-radius: 2px;
+      border: 1px solid #a6cc0c;
+      border-radius: 10px;
       position: fixed;
       bottom: 100px;
       right: 100px;
