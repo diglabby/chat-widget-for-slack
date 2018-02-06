@@ -7,12 +7,12 @@ var slackChatWidgetConfig = {
     
     title: 'Chat title', //chat title
     subtitle: 'Chat subtitle',     //chat subtitle
-    channel: '',       //slack channel   
+    channel: '.......',       //slack channel   
 
     inputMessagePlaceholder: "Your message",
     inputNamePlaceholder: "Your name",
 
-    email: "falasnter.by@gmail.com",
+    email: "test@test.com",
     emailFormTitle: "Email form title text",
     emailPlaceholder: "Your Еmail",
     emailMessagePlaceholder: "Your message",
