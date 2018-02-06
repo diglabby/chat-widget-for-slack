@@ -55,9 +55,14 @@ to
 ```
 section of target page
 
-- add your slack bot [token](https://slack.com/apps/manage/custom-integrations) inside file *"slackChatWidget/token.key"*
+- copy /dist/slackChatWidget folder to the root directory
 
-- add your slack channel inside *config.js*. 
+- add a slack bot [token](https://slack.com/apps/manage/custom-integrations) inside file *"slackChatWidget/token.key"*
+
+- add a slack channel inside *config.js*. 
+
+- for doing this step use, for example, "C4YT2A35L" string from the URL "https://falanster.slack.com/messages/C4YT2A35L" (but your channel)
+
 ```
 channel: "XXXXXX"
 ```
