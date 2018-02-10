@@ -8,7 +8,7 @@ class SourceProvider {
      * Implementation optional
      */
     genericMethod() {
-        console.log('running from super class. Text: '+this._text);
+        console.log('running from super class. Text: '+ this._text);
     }
 
     /**

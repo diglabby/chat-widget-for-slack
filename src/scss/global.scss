@@ -1,0 +1,25 @@
+
+$mainColor: rgba(100, 221, 23, 0.8);
+$secondaryColor: rgba(51, 51, 51, 1);
+$thirdColor: rgba(255, 255, 255, 1);
+
+$elementsPadding: 3px;
+$angleRadius: 3px;
+$elementsHeight: 45px;
+$elementsWidth: 45px;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Arimo');
+
+$mainFont: 'Arimo', sans-serif;
+$mainFontColor: #444;
+$mainFontSize: 14px;
+
+$secondaryFont: 'Roboto', sans-serif;
+
+input:required {
+    box-shadow:none;
+}
+textarea:required {
+    box-shadow:none;
+}

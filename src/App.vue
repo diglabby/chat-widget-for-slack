@@ -1,12 +1,16 @@
 <template>
   <div>
+
       <transition name="slide-fade">
-        <chatWindow v-if="showWindow" v-on:hide="hideWidget" v-bind:class=" { 'slackWidgetStarter-hide': hideWindow}"></chatWindow>
+        <chatWindow id="slackWidget__window" v-if="showWindow" v-on:hide="hideWidget" v-bind:class="{ 'slackWidget__window_hide' : hideWindow }">
+        </chatWindow>
       </transition>
+
       <transition name="slide-fade">
-        <div id="slackWidgetStarter-button" v-if="showButton" v-on:click="showWidget">
-      </div>
+        <div id="slackWidget__button" v-if="showButton" v-on:click="showWidget">
+        </div>
       </transition>
+
   </div>
 </template>
 
@@ -39,62 +43,80 @@ export default {
     * @method showWidget
     */
     showWidget: function () {
-      this.showWindow = true;
-      this.hideWindow = false;
-      this.showButton = false;
+      this.showWindow = true
+      this.hideWindow = false
+      this.showButton = false
     },
 
-  /**
+    /**
     * Hide chat window
     * @method hideWidget
     */
     hideWidget: function () {
-      this.hideWindow = true;
-      this.showButton = true;
+      this.hideWindow = true
+      this.showButton = true
     }
   },
 
-  mounted: function() {
-    var self = this;
+  mounted: function () {
+    var self = this
 
-    //show widget with timeout
+    // show widget with timeout
 
-    setTimeout(function() {
-      self.showWidget();
-    }, settingsManager.getProperty('openChatTimeout'));
+    setTimeout(function () {
+      self.showWidget()
+    }, settingsManager.getProperty('openChatTimeout'))
   }
 }
+
 </script>
 
 <style lang="scss" scoped>
 
-  .slackWidgetStarter-hide {
-    visibility: hidden !important;
+  @import "./scss/global.scss";
+
+  .slackWidget__window_hide {
+    transform: scale(0.2);
+    opacity: 0;
   }
 
-  #slackWidgetStarter-button {
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
+  #slackWidget__window {
+    transition: transform 0.4s ease-in-out,
+                opacity 0.4s ease-in-out;
+  }
+
+  #slackWidget__button {
     position: fixed;
+
+    width: 80px;
+    height: 80px;
+
     bottom: 100px;
     right: 100px;
-    background: url('assets/button.png') no-repeat;
-    background-size: 100% 100%;
+
+    padding: 5px;
+    overflow: hidden;
+
+    background: url('assets/button.png') 40% center no-repeat;
+    background-size: 70% 70%;
+
     cursor: pointer;
-    transition: all 0.5s ease;
-  }
 
-  .slide-fade-enter-active {
-    transition: all .5s ease;
-  }
+    border-radius: 50%;
+    border: 4px solid $mainColor;
 
-  .slide-fade-leave-active {
-    transition: all 1.2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.4s ease-in-out;
+    }
   }
 
   .slide-fade-enter, .slide-fade-leave-to {
-    transform: translateX(10px);
+    transform: scale(0.2);
     opacity: 0;
   }
+
 </style>

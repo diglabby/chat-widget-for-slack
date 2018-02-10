@@ -4,14 +4,15 @@
 import Vue from 'vue'
 import App from './App'
 import axios from 'axios'
-import VueAxios from 'vue-axios' //ajax calls module
-Vue.use(VueAxios, axios);
+import VueAxios from 'vue-axios' // ajax calls module
 
-var VueCookie = require('vue-cookie'); //cookie helper module
-Vue.use(VueCookie);
+Vue.use(VueAxios, axios)
 
-require('webpack-jquery-ui/draggable');
-require('webpack-jquery-ui/resizable');
+var VueCookie = require('vue-cookie') // cookie helper module
+Vue.use(VueCookie)
+
+require('webpack-jquery-ui/draggable')
+require('webpack-jquery-ui/resizable')
 
 Vue.config.productionTip = false
 
