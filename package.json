@@ -16,9 +16,10 @@
   "dependencies": {
     "axios": "^0.17.1",
     "es6-promise": "^4.2.4",
+    "simple-vue-validator": "^0.14.2",    
     "vue": "^2.5.2",
     "vue-axios": "^2.0.2",
-    "vue-cookie": "^1.1.4",
+    "vue-cookie": "^1.1.4",    
     "vue-router": "^3.0.1",
     "webpack-jquery-ui": "^1.0.0"
   },

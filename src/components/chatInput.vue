@@ -1,6 +1,6 @@
 <template>
   <div class="slackWidget-input">
-    <form class="slackWidget-input__form" v-on:submit.prevent="onSubmit">
+    <form class="slackWidget-input__form" v-on:submit.prevent="onSubmit" >
       <div class="group">
 
           <input ref="usernameField" class="slackWidget-input__username"

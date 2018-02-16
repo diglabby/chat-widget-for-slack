@@ -19,11 +19,11 @@
         <span class="bar" v-bind:class="{ 'bar-focused': focused }"></span>
         <label v-bind:class="{ 'label-focused': focused }">{{ placeholderMessage }}</label>
       </div>
+
       <div class="slackWidget-offline__form_wrapper">
         <div class="group">
-
           <input class="slackWidget-offline__email"
-            v-bind:class="{ 'slackWidget-offline_error': hasError }"
+            v-bind:class="{ 'slackWidget-offline_error': validation.hasError('email') }"
             v-model="email"
             required
           >
@@ -48,6 +48,9 @@
 import PerfectScrollbar from 'perfect-scrollbar'
 import {settingsManager} from '../helpers/settingsManager.js'
 import loader from './loader.vue'
+var SimpleVueValidation = require('simple-vue-validator')
+var Validator = SimpleVueValidation.Validator
+
 const autosize = require('autosize')
 
 /** @module chatOffline  - contains functionality of chat window when all users is offline  */
@@ -76,7 +79,11 @@ export default {
       hasError: false
     }
   },
-
+  validators: {
+    email: function (value) {
+      return Validator.value(value).email('That doesn\'t look like a valid email address.')
+    }
+  },
   computed: {
 
     /**
@@ -210,26 +217,36 @@ export default {
     onSubmit: function (event) {
       this.message = this.getMessage()
 
-      if (this.message) {
-        if (this.clearedEmail) {
-          // send data
-          let data = 'request=sendEmail&message=' + this.message + '&email=' + this.clearedEmail + '&emailto=' + this.emailTo
-          this.sendAjaxMessage(this.uri, data)
+      this.$validate()
+        .then(
+          success => {
+            if (success) {
+              if (this.message) {
+                if (this.clearedEmail) {
+                  // send data
 
-          // clear message cookies
-          this.setMessage('')
+                  let data = 'request=sendEmail&message=' + this.message + '&email=' + this.clearedEmail + '&emailto=' + this.emailTo
+                  this.sendAjaxMessage(this.uri, data)
 
-          this.hasError = false
-          this.clearFields()
-          this.showForm = false
-        } else {
-          this.hasError = true
-        }
+                  // clear message cookies
+                  this.setMessage('')
 
-        this.hasError = false
-      } else {
-        this.hasError = true
-      }
+                  this.hasError = false
+                  this.clearFields()
+                  this.showForm = false
+                } else {
+                  this.hasError = true
+                }
+
+                this.hasError = false
+              } else {
+                this.hasError = true
+              }
+            } else {
+              this.hasError = true
+            }
+          }
+        )
     }
   },
 

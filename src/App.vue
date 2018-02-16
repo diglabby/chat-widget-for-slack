@@ -2,12 +2,21 @@
   <div>
 
       <transition name="slide-fade">
-        <chatWindow id="slackWidget__window" v-if="showWindow" v-on:hide="hideWidget" v-bind:class="{ 'slackWidget__window_hide' : hideWindow }">
+        <chatWindow id="slackWidget__window"
+          v-if="showWindow"
+          v-on:hide="hideWidget"
+          v-bind:class="{ 'slackWidget__window_hide' : hideWindow }"
+          v-bind:style="{ bottom: bottom + 'px', right: right + 'px' }"
+        >
         </chatWindow>
       </transition>
 
       <transition name="slide-fade">
-        <div id="slackWidget__button" v-if="showButton" v-on:click="showWidget">
+        <div id="slackWidget__button"
+          v-if="showButton"
+          v-on:click="showWidget"
+          v-bind:style="{ bottom: bottom + 'px', right: right + 'px' }"
+        >
         </div>
       </transition>
 
@@ -32,7 +41,9 @@ export default {
     return {
       showWindow: false,
       showButton: true,
-      hideWindow: false
+      hideWindow: false,
+      bottom: settingsManager.getProperty('windowBottomMargin'),
+      right: settingsManager.getProperty('windowRightMargin')
     }
   },
 
@@ -99,7 +110,7 @@ export default {
 
     background: url('assets/button.png') 40% center no-repeat;
     background-size: 70% 70%;
-
+    background-color: $thirdColor;
     cursor: pointer;
 
     border-radius: 50%;

@@ -448,7 +448,7 @@ export default {
     }
 
     .slackWidget-message__text {
-      text-align: right;
+      text-align: left;
     }
 
     margin-right: 35px;

@@ -175,7 +175,7 @@ export default {
 
   mounted: function () {
     this.createSocket()
-
+    var self = this
     // set window draggable and resizable
     $('.slackChatWidget-container').resizable({
       handles: 'n, e, s, w, ne, nw',
@@ -216,6 +216,7 @@ export default {
       right: 100px;
 
       border-radius: $angleRadius;
+      background-color: $thirdColor;
 
       display: flex;
       flex-direction: column;

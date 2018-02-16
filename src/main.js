@@ -2,7 +2,6 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 // VALIDATION
-import VueValidation from 'vue-form-validation'
 
 import Vue from 'vue'
 import App from './App'
@@ -16,6 +15,8 @@ Vue.use(VueCookie)
 
 require('webpack-jquery-ui/draggable')
 require('webpack-jquery-ui/resizable')
+var SimpleVueValidation = require('simple-vue-validator')
+Vue.use(SimpleVueValidation)
 
 Vue.config.productionTip = false
 
