@@ -94,10 +94,12 @@ export default {
   #slackWidget__window {
     transition: transform 0.4s ease-in-out,
                 opacity 0.4s ease-in-out;
+    z-index: 9999999;
   }
 
   #slackWidget__button {
     position: fixed;
+    box-sizing: border-box;
 
     width: 80px;
     height: 80px;
@@ -118,7 +120,7 @@ export default {
 
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     transition: transform 0.5s ease;
-
+    z-index: 9999999;
     &:hover {
       transform: scale(1.1);
       transition: transform 0.4s ease-in-out;

@@ -184,7 +184,7 @@ export default {
     getMessage: function (data, workspaceData, toTop) {
       let message = {}
 
-      if (data.type == 'message') {
+      if (data.type == 'message' && data.subtype !== 'message_deleted') {
         message.time = utils.formatTime(data.ts)
         message.unformattedTime = data.ts
         message.text = data.text
@@ -224,6 +224,7 @@ export default {
 
   updated: function () {
     this.ps.update()
+    this.scrollTop()
   },
 
   mounted: function () {

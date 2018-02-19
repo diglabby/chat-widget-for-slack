@@ -226,6 +226,7 @@ export default {
 
       overflow: hidden;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      z-index: 9999999;
     }
 
     &__close {
@@ -237,7 +238,7 @@ export default {
       right: 0px;
       top: 0px;
 
-      z-index: 999;
+      z-index: 9999999;
       padding: 5px;
 
       background: url("../assets/close_chat.png") center center no-repeat;
