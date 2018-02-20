@@ -182,9 +182,6 @@ export default {
         this.focused = false
       }
     },
-    validation: function() {
-
-    },
 
     /**
     * Handle form submit event and send data to server

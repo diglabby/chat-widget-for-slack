@@ -19,7 +19,7 @@ function loadjscssfile(filename, filetype) {
 }
 
 window.onresize = function() {
-    if(window.innerWidth >= 800 && !chatWidgetIsLoaded) {    
+    if(window.innerWidth >= 800 && !chatWidgetIsLoaded) {   
         var div = document.createElement('div');
         div.id = "slackChatWidget";  
         document.body.appendChild(div);   

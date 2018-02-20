@@ -43,7 +43,7 @@ npm test
 
 How to deploy this on a live system
 
-- Download latest [build](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/diglabby/chat-widget-for-slack/tree/master/dist/slackChatWidget)
+- Download latest [build](https://github.com/diglabby/chat-widget-for-slack/archive/Latest.zip)
 - Copy arhive to your site root directory and unpack;
 - add line
 ```html
@@ -55,16 +55,16 @@ to
 ```
 section of target page
 
-- copy /dist/slackChatWidget folder to the root directory
+- copy *slackChatWidget* folder to the root directory
 
 - add a slack bot [token](https://slack.com/apps/manage/custom-integrations) inside file *"slackChatWidget/token.key"*
 
 - add a slack channel inside *config.js*. 
 
-- for doing this step use, for example, "C4YT2A35L" string from the URL "https://falanster.slack.com/messages/C4YT2A35L" (but your channel)
+- for doing this step use, for example, "C4YT2A35L" string from the URL "https://********.slack.com/messages/C4YT2A35L" (but your channel)
 
 ```
-channel: "XXXXXX"
+channel: "*******"
 ```
 - inside *config.js* you have all editable widget parameters. 
 
