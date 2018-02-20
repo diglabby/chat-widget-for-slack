@@ -16,7 +16,7 @@ var slackChatWidgetConfig = {
     emailFormTitle: "Email form title text",
     emailPlaceholder: "Your Еmail",
     emailMessagePlaceholder: "Your message",
-    emailSend: "Thanks for your massage",
+    emailSend: "Thanks for your message",
     emailNotSend: "Sorry, your email not sent, try later",
 
     requestHandlerPath: 'slackChatWidget/app/php/requestHandler.php',
