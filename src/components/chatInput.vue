@@ -35,6 +35,7 @@
 
 <script>
 
+import VueValidation from 'vue-form-validation'
 import {settingsManager} from '../helpers/settingsManager.js'
 import PerfectScrollbar from 'perfect-scrollbar'
 const autosize = require('autosize')
@@ -180,6 +181,9 @@ export default {
       } catch (e) {
         this.focused = false
       }
+    },
+    validation: function() {
+
     },
 
     /**
