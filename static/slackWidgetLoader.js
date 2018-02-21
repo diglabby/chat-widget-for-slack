@@ -18,7 +18,7 @@ function loadjscssfile(filename, filetype) {
     document.body.appendChild(fileref)
 }
 
-window.onresize = function() {
+function resizeSlackWidgetApp() {
     if(window.innerWidth >= 800 && !chatWidgetIsLoaded) {   
         var div = document.createElement('div');
         div.id = "slackChatWidget";  
@@ -30,7 +30,7 @@ window.onresize = function() {
     } 
 }
 
-window.onload = function() {   
+function loadSlackWidgetApp() {   
     if(window.innerWidth >= 800) {
         var div = document.createElement('div');
         div.id = "slackChatWidget";  
@@ -41,3 +41,6 @@ window.onload = function() {
         chatWidgetIsLoaded  = true;        
     }    
 }
+
+window.addEventListener("load", loadSlackWidgetApp, false); 
+window.addEventListener("resize", resizeSlackWidgetApp, false); 
